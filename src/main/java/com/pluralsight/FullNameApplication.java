@@ -26,7 +26,7 @@ public class FullNameApplication {
         lastName = lastName.trim();
         fullName = firstName + middleName + lastName;
 
-        // Ask suffix
+        // Ask suffix, if there is suffix then add comma
         System.out.println("Suffix: ");
         String suffix = scanner.nextLine();
         suffix = suffix.trim();
@@ -36,6 +36,6 @@ public class FullNameApplication {
             fullName = firstName + " " + middleName + " " + lastName + " " + suffix;
         }
 
-        System.out.println(fullName);
+        System.out.println("Full name: " + fullName);
     }
 }
