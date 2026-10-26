@@ -5,6 +5,7 @@ public class FullNameApplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String fullName;
+        boolean hasMiddleName = false;
 
         System.out.println("Hi, please enter your name!");
 
@@ -17,9 +18,13 @@ public class FullNameApplication {
         // Ask middle name
         System.out.println("Middle name: ");
         String middleName = scanner.nextLine();
-        if (middleName.equals("")){
+        if (middleName.length() > 0){
         middleName = middleName.trim();
-        fullName = firstName + middleName;}
+        fullName = firstName + middleName;
+        hasMiddleName = true;}
+        else {
+            hasMiddleName = false;
+        }
 
         // Ask last name
         System.out.println("Last name: ");
@@ -31,10 +36,14 @@ public class FullNameApplication {
         System.out.println("Suffix: ");
         String suffix = scanner.nextLine();
         suffix = suffix.trim();
-        if (suffix.length() > 0) {
+        if (suffix.length() > 0 && hasMiddleName == true) {
             fullName = firstName + " " + middleName + " " + lastName + ", " + suffix; }
-        else {
-            fullName = firstName + " " + middleName + " " + lastName + " " + suffix;
+        else if (hasMiddleName == false && suffix.length() > 0) {
+            fullName = firstName + " " + lastName + " " + suffix;
+        } else if (hasMiddleName == true) {
+            fullName = firstName + " " + middleName + " " + lastName;
+        } else {
+            fullName = fullName = firstName + " " + lastName;
         }
 
         System.out.println("Full name: " + fullName);
