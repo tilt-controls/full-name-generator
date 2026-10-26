@@ -6,7 +6,7 @@ public class FullNameApplication {
         Scanner scanner = new Scanner(System.in);
         String fullName;
 
-        System.out.println("Hi, please enter your name");
+        System.out.println("Hi, please enter your name!");
 
         // Ask first name
         System.out.println("First name: ");
@@ -17,8 +17,9 @@ public class FullNameApplication {
         // Ask middle name
         System.out.println("Middle name: ");
         String middleName = scanner.nextLine();
+        if (middleName.equals("")){
         middleName = middleName.trim();
-        fullName = firstName + middleName;
+        fullName = firstName + middleName;}
 
         // Ask last name
         System.out.println("Last name: ");
